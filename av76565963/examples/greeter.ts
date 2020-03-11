@@ -3,7 +3,6 @@ class User {
     lastName: string;
     fullName: string;
 
-
     constructor(firstName: string, lastName: string) {
         this.firstName = firstName;
         this.lastName = lastName;
