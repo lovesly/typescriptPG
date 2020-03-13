@@ -23,3 +23,5 @@ let user: Person = new User('Z', 'S');
 
 console.log(greeter(user));
 // stopped at p4
+
+export {}
