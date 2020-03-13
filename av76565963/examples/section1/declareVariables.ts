@@ -45,5 +45,12 @@ f2({ a: 'yes' });
 // 那么上面的 f2 其实就写的不严谨，类型和默认值冲突了，说明设计有问题。
 // f2({});
 
-// stopped at p11
-
+// 当我定义类型的时候，对象里的 逗号 和 分号有区别吗？感觉是一个效果
+let object2: { a: string; b: number } = { a: '1', b: 10};
+// spread
+let object1 = {
+    food: 'spicy',
+    price: '$10',
+    ambiance: 'noisy'
+};
+let search = { ...object1, food: 12 };
