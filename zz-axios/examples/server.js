@@ -33,7 +33,7 @@ const router = express.Router()
 
 registerSimpleRouter()
 
-// registerBaseRouter()
+registerBaseRouter()
 
 // registerErrorRouter()
 
@@ -67,6 +67,7 @@ function registerBaseRouter () {
     res.json(req.body)
   })
 
+  // 这个有点意思啊，接受 buffer 数据
   router.post('/base/buffer', function(req, res) {
     let msg = []
     req.on('data', (chunk) => {

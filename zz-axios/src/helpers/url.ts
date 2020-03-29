@@ -1,5 +1,5 @@
 // ts 可以直接用 es6 module，忘了
-import { isDate, isObject } from './utils';
+import { isDate, isPlainObject } from './utils';
 
 function encode(val: string): string {
   // what?
@@ -34,7 +34,7 @@ export function buildURL(url: string, params?: any): string {
     values.forEach((value) => {
       if (isDate(value)) {
         value = value.toISOString();
-      } else if (isObject(value)) {
+      } else if (isPlainObject(value)) {
         // 这里肯定不行啊，循环引用怎么办
         value = JSON.stringify(value);
       }
