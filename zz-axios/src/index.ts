@@ -1,13 +1,13 @@
-import { AxiosRequestConfig } from './types/index';
+import { AxiosRequestConfig, AxiosPromise } from './types/index';
 import xhr from './xhr';
 import { buildURL } from './helpers/url';
 import { transformRequest } from './helpers/data';
 import { processHeaders } from './helpers/header';
 
 // 神奇，有个字面量接口类型，就不会报 any 的错误了
-function axios(config: AxiosRequestConfig): void {
+function axios(config: AxiosRequestConfig): AxiosPromise {
   processConfig(config);
-  xhr(config);
+  return xhr(config);
 }
 
 // 为什么要大费周章又过滤有干啥的，我记得有 formData 格式之类的
