@@ -1,4 +1,5 @@
 import { AxiosRequestConfig, AxiosPromise, AxiosResponse } from './types/index';
+import { parseHeaders } from './helpers/header';
 
 // xmlhttprequest?? I thought axios is using fetch api?
 export default function xhr(config: AxiosRequestConfig): AxiosPromise  {
@@ -8,9 +9,13 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise  {
     // 另外，我们封装请求，好像大部分基于 fetch
     const request = new XMLHttpRequest();
 
+    // 忘了，这里是服务端自动识别的吗？
+    // responseType 设置了 json，服务端就返回给json？？
+    // 应该是浏览器端的，服务端都处理成 json 字符串，但是 responseType 会设置为 json，或默认的 ''
+    // 浏览器端，xmlhttprequest 得到字符串，会根据 responseType 处理
     if (responseType) {
       request.responseType = responseType;
-    }
+    } 
 
     request.open(method.toUpperCase(), url, true);
 
@@ -18,7 +23,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise  {
       if (request.readyState !== 4) {
         return;
       } else {
-        const responseHeaders = request.getAllResponseHeaders();
+        const responseHeaders = parseHeaders(request.getAllResponseHeaders());
         const responseData = responseType !== 'text' ? 
                                     request.response : 
                                     request.responseText;

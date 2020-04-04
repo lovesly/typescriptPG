@@ -25,6 +25,7 @@ app.use(webpackHotMiddleware(compiler))
 
 app.use(express.static(__dirname))
 
+// bodyParser 是？
 app.use(bodyParser.json())
 // app.use(bodyParser.text())
 app.use(bodyParser.urlencoded({ extended: true }))
