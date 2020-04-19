@@ -1,2 +1,4 @@
-dist/**
+**/dist/**
 **/node_modules/
+**/docs/**
+**/.rpt2_cache/
