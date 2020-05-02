@@ -1,6 +1,7 @@
 {
   "exclude": [
-    "zz-axios"
+    "zz-axios",
+    "dist"
   ],
   "compilerOptions": {
     /* Basic Options */
